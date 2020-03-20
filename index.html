@@ -62,26 +62,26 @@
 
 <script>
   function selectReview() {
-    var amount = document.getElementById('billamount').value
+    var a = document.getElementById('bill').value
 
     var review = document.getElementById('review').value
     if (review === 'good') {
-      var totalAmount = eval(amount) * 18 / 100                                        
+      var totalAmount = eval(a) * 18 / 100                                        
       document.getElementById('reviewNote').innerHTML = 'Good'                            
     } else if (review === 'avg') {
-      var totalAmount = eval(amount) * 10 / 100
+      var totalAmount = eval(a) * 10 / 100
       document.getElementById('reviewNote').innerHTML = 'Average'
     } else if (review === 'bad') {
-      var totalAmount = eval(amount) * 8 / 100
+      var totalAmount = eval(a) * 8 / 100
       document.getElementById('reviewNote').innerHTML = 'Bad'
     } else {
-      var totalAmount = amount
+      var totalAmount = a
     }
     document.getElementById('totalbill').value = totalAmount
   }
 
   function reset() {
-    document.getElementById('billamount').value = ''
+    document.getElementById('bill').value = ''
     document.getElementById('review').value = ''
     document.getElementById('totalbill').value = ''
   }
