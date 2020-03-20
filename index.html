@@ -62,12 +62,8 @@
 
 <script>
   function selectReview() {
-    var text;
     var amount = document.getElementById('billamount').value
-    if(isNaN(amount)){
-      text = "Input not valid";
-    }
-    document.getElementById("demo").innerHTML = text;
+
     var review = document.getElementById('review').value
     if (review === 'good') {
       var totalAmount = eval(amount) * 18 / 100                                        
