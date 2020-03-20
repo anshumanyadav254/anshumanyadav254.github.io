@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title>Bill</title>
+</head>
+
+<body>
+  <header>
+    <br><br>
+    <h1 class="labelstyle"><b>Food Centre</b></h1>
+  </header><br>
+
+
+  <img src="https://images.pexels.com/photos/2228559/pexels-photo-2228559.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""><br>
+
+
+  <form id="myform">
+    <br><br><br>
+    <label class="labelstyleone">
+      <h2><b>Total Amount</b></h2>
+    </label>
+    <input class="w3-input w3-border w3-round-large" style="background-color: black; color: #7FFF00; text-align:center;"
+      type="text" id="billamount" oninput="selectReview()">
+    <label class="labelstyleone">
+      <h2><b>Pay For Satisfaction Tip</b></h2>
+    </label>
+
+    <select id="review" class="dropbtn" onchange="selectReview()">
+      <option value="">Please Select Review</option>
+      <option value="good">Good</option>
+      <option value="avg">Average</option>
+      <option value="bad">Bad </option>
+    </select>
+
+    <br>
+    <label class="labelstyleone">
+      <h2><b>Amount For Tip</b></h2>
+    </label>
+
+    <input disabled class="w3-input w3-border w3-round-large"
+      style="background-color: black; color: white; text-align:center;" type="text" id="totalbill"><br>
+    <button type='button' class="trigger_popup_fricc">Pay Tip</button>
+  </form>
+
+  <div class="hover_bkgr_fricc">
+    <span class="helper"></span>
+    <div>
+      <div class="popupCloseButton" onclick="reset()">&times;</div>
+      <h1>Thank You!! Visit Again.</h1>
+      <h2 id='reviewNote'></h2>
+    </div>
+  </div>
+</body>
+
+
+<script>
+  function selectReview() {
+    var amount = document.getElementById('billamount').value
+    var review = document.getElementById('review').value
+    if (review === 'good') {
+      var totalAmount = eval(amount) * 18 / 100                                        
+      document.getElementById('reviewNote').innerHTML = 'Good'                            
+    } else if (review === 'avg') {
+      var totalAmount = eval(amount) * 10 / 100
+      document.getElementById('reviewNote').innerHTML = 'Average'
+    } else if (review === 'bad') {
+      var totalAmount = eval(amount) * 8 / 100
+      document.getElementById('reviewNote').innerHTML = 'Bad'
+    } else {
+      var totalAmount = amount
+    }
+    document.getElementById('totalbill').value = totalAmount
+  }
+
+  function reset() {
+    document.getElementById('billamount').value = ''
+    document.getElementById('review').value = ''
+    document.getElementById('totalbill').value = ''
+  }
+</script>
+
+<script>
+  $(window).on('load', function () {
+    $(".trigger_popup_fricc").click(function () {
+      if (document.getElementById('review').value && document.getElementById('totalbill').value) {
+        $('.hover_bkgr_fricc').show();
+      }
+    });
+    $('.popupCloseButton').click(function () {
+      $('.hover_bkgr_fricc').hide();
+    });
+  });
+</script>
+
+</html>
