@@ -8,13 +8,13 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <title>Kanha Continental</title>
+  <title>Bill</title>
 </head>
 
 <body>
   <header>
     <br><br>
-    <h1 class="labelstyle"><b>Kanha Continental</b></h1>
+    <h1 class="labelstyle"><b>Food Centre</b></h1>
   </header><br>
 
 
@@ -27,7 +27,7 @@
       <h2><b>Total Amount</b></h2>
     </label>
     <input class="w3-input w3-border w3-round-large" style="background-color: black; color: #7FFF00; text-align:center;"
-      type="text" id="bill" oninput="selectReview()">
+      type="text" id="billamount" oninput="selectReview()">
     <label class="labelstyleone">
       <h2><b>Pay For Satisfaction Tip</b></h2>
     </label>
@@ -62,26 +62,25 @@
 
 <script>
   function selectReview() {
-    var a = document.getElementById('bill').value
-
-    var review = document.getElementById('reviewNote').value
+    var amount = document.getElementById('billamount').value
+    var review = document.getElementById('review').value
     if (review === 'good') {
-      var totalAmount = eval(a) * 18 / 100                                        
+      var totalAmount = eval(amount) * 18 / 100                                        
       document.getElementById('reviewNote').innerHTML = 'Good'                            
     } else if (review === 'avg') {
-      var totalAmount = eval(a) * 10 / 100
+      var totalAmount = eval(amount) * 10 / 100
       document.getElementById('reviewNote').innerHTML = 'Average'
     } else if (review === 'bad') {
-      var totalAmount = eval(a) * 8 / 100
+      var totalAmount = eval(amount) * 8 / 100
       document.getElementById('reviewNote').innerHTML = 'Bad'
     } else {
-      var totalAmount = a
+      var totalAmount = amount
     }
     document.getElementById('totalbill').value = totalAmount
   }
 
   function reset() {
-    document.getElementById('bill').value = ''
+    document.getElementById('billamount').value = ''
     document.getElementById('review').value = ''
     document.getElementById('totalbill').value = ''
   }
